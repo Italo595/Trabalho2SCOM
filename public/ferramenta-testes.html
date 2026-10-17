@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Ferramenta de testes da API (apenas desenvolvimento)</title>
+<style>
+ body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem}
+ fieldset{margin-bottom:1rem} input{margin:.2rem;padding:.4rem;width:220px}
+ button{padding:.4rem .8rem;margin:.2rem;cursor:pointer}
+ pre{background:#111;color:#0f0;padding:1rem;min-height:8rem;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<h1>Testes da API</h1>
+<p>Página só para desenvolvimento. Remova antes da entrega (ou troque por telas reais).</p>
+
+<fieldset><legend>Cadastro</legend>
+ <input id="rn" placeholder="Nome"><input id="re" placeholder="E-mail"><input id="rs" type="password" placeholder="Senha">
+ <button id="bReg">Cadastrar</button>
+</fieldset>
+
+<fieldset><legend>Login</legend>
+ <input id="le" placeholder="E-mail"><input id="ls" type="password" placeholder="Senha">
+ <button id="bLogin">Entrar</button>
+ <button id="bLogout">Logout</button>
+ <button id="bMe">Quem sou eu</button>
+ <button id="bAdmin">Listar usuários (admin)</button>
+ <button id="bNoCsrf">POST sem token CSRF</button>
+</fieldset>
+
+<pre id="out">Resultado aparece aqui.</pre>
+
+<script>
+const base = location.pathname.replace(/[^/]*$/, '') + 'api';
+const out = document.getElementById('out');
+const $ = id => document.getElementById(id);
+
+async function csrf() {
+  const r = await fetch(base + '/csrf', {credentials: 'same-origin'});
+  return (await r.json()).data.csrf_token;
+}
+async function api(method, path, body, withToken = true) {
+  const headers = {'Content-Type': 'application/json'};
+  if (method !== 'GET' && withToken) headers['X-CSRF-Token'] = await csrf();
+  const r = await fetch(base + path, {
+    method, credentials: 'same-origin', headers,
+    body: body ? JSON.stringify(body) : undefined
+  });
+  const j = await r.json();
+  out.textContent = method + ' ' + path + '  ->  HTTP ' + r.status + '\n' + JSON.stringify(j, null, 2);
+}
+$('bReg').onclick    = () => api('POST', '/auth/register', {nome: $('rn').value, email: $('re').value, senha: $('rs').value});
+$('bLogin').onclick  = () => api('POST', '/auth/login', {email: $('le').value, senha: $('ls').value});
+$('bLogout').onclick = () => api('POST', '/auth/logout');
+$('bMe').onclick     = () => api('GET', '/auth/me');
+$('bAdmin').onclick  = () => api('GET', '/admin/usuarios');
+$('bNoCsrf').onclick = () => api('POST', '/auth/logout', null, false);
+</script>
+</body>
+</html>
