@@ -21,6 +21,15 @@ final class Validator
         return preg_replace('/[\x00-\x1F\x7F]/u', '', $v) ?? '';
     }
 
+    /** Valida um ID vindo da URL (inteiro positivo). */
+    public static function id(mixed $v, string $label = 'ID'): int
+    {
+        if ((!is_string($v) && !is_int($v)) || !ctype_digit((string) $v) || (int) $v < 1) {
+            throw new AppException("$label inválido", 400);
+        }
+        return (int) $v;
+    }
+
     public function text(string $field, int $min, int $max, string $label): self
     {
         $v = $this->data[$field] ?? null;
@@ -31,6 +40,49 @@ final class Validator
         $len = mb_strlen(self::cleanText($v));
         if ($len < $min || $len > $max) {
             $this->errors[$field] = "$label deve ter entre $min e $max caracteres";
+        }
+        return $this;
+    }
+
+    public function optionalText(string $field, int $max, string $label): self
+    {
+        $v = $this->data[$field] ?? null;
+        if ($v === null || $v === '') {
+            return $this;
+        }
+        if (!is_string($v)) {
+            $this->errors[$field] = "$label deve ser texto";
+        } elseif (mb_strlen(self::cleanText($v)) > $max) {
+            $this->errors[$field] = "$label deve ter no máximo $max caracteres";
+        }
+        return $this;
+    }
+
+    public function optionalUrl(string $field, int $max = 255): self
+    {
+        $v = $this->data[$field] ?? null;
+        if ($v === null || $v === '') {
+            return $this;
+        }
+        if (
+            !is_string($v)
+            || mb_strlen($v) > $max
+            || !filter_var($v, FILTER_VALIDATE_URL)
+            || !preg_match('#^https?://#i', $v) // bloqueia javascript: e similares
+        ) {
+            $this->errors[$field] = 'URL inválida (use http:// ou https://)';
+        }
+        return $this;
+    }
+
+    public function int(string $field, int $min, int $max, string $label): self
+    {
+        $v = $this->data[$field] ?? null;
+        if (is_string($v) && ctype_digit($v)) {
+            $v = (int) $v;
+        }
+        if (!is_int($v) || $v < $min || $v > $max) {
+            $this->errors[$field] = "$label deve ser um número inteiro entre $min e $max";
         }
         return $this;
     }
