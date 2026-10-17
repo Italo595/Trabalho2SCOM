@@ -20,6 +20,7 @@ use App\Repositories\UsuarioRepository;
 use App\Services\AuthService;
 
 $config = require __DIR__ . '/../config/config.php';
+date_default_timezone_set('America/Sao_Paulo');
 Logger::init($config['log_file']);
 
 // ---- Tratamento centralizado de erros ----
