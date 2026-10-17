@@ -1,0 +1,5 @@
+# Bloqueia download de arquivos sensiveis
+<FilesMatch "(^\.env|\.sql$|\.log$|\.md$)">
+    Require all denied
+</FilesMatch>
+Options -Indexes

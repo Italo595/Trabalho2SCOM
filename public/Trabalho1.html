@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>POKEDEX & TEAM BUILDER</title>
+	<link rel="stylesheet" href="Trabalho1.css" />
+</head>
+
+<body id="topo">
+	<!-- CABEÇALHO -->
+	<header class="cabecalho">
+		<div class="cabecalho-esquerda">
+			<input type="checkbox" id="toggle-aside" class="input-toggle" />
+			<label for="toggle-aside" class="btn-toggle-aside" aria-label="Abrir menu de categorias">
+				☰ Categorias
+			</label>
+			<h1>GUIA SOBRE POKEDEX</h1>
+		</div>
+
+		<nav>
+			<ul class="menu-navegacao">
+				<li><a href="#meu-time" class="link-menu">meu time</a></li>
+				<li><a href="#iniciais" class="link-menu">iniciais</a></li>
+				<li><a href="#roedores" class="link-menu">roedores</a></li>
+				<li><a href="#pikaclones" class="link-menu">pikaclones</a></li>
+				<li><a href="#aves" class="link-menu">aves</a></li>
+				<li><a href="#insetos" class="link-menu">insetos</a></li>
+				<li><a href="#peixes" class="link-menu">peixes</a></li>
+				<li><a href="#artificiais" class="link-menu">artificiais</a></li>
+				<li><a href="#lendarios" class="link-menu">lendarios</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="container-conteudo">
+		<!-- BARRA LATERAL -->
+		<aside class="menu-lateral">
+			<h3>Categorias</h3>
+			<ul class="lista-categorias">
+				<li><a href="#home" class="link-categoria">HOME</a></li>
+				<li><a href="#meu-time" class="link-categoria">MEU TIME</a></li>
+
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">INICIAIS</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Bulbasaur">Bulbasaur</a></li>
+							<li><a href="#Charmander">Charmander</a></li>
+							<li><a href="#Squirtle">Squirtle</a></li>
+							<li><a href="#Chikorita">Chikorita</a></li>
+							<li><a href="#Cyndaquil">Cyndaquil</a></li>
+							<li><a href="#Totodile">Totodile</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">ROEDORES</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Rattata">Rattata</a></li>
+							<li><a href="#Bidoof">Bidoof</a></li>
+							<li><a href="#Sentret">Sentret</a></li>
+							<li><a href="#Zigzagoon">Zigzagoon</a></li>
+							<li><a href="#Patrat">Patrat</a></li>
+							<li><a href="#Bunnelby">Bunnelby</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">PIKACLONES</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Pichu">Pichu</a></li>
+							<li><a href="#Plusle">Plusle</a></li>
+							<li><a href="#Minun">Minun</a></li>
+							<li><a href="#Pachirisu">Pachirisu</a></li>
+							<li><a href="#Emolga">Emolga</a></li>
+							<li><a href="#Dedenne">Dedenne</a></li>
+							<li><a href="#morpeko"></a></li>
+							<li><a href="#Mimikyu">Mimikyu</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">AVES</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Pidgey">Pidgey</a></li>
+							<li><a href="#Hoothoot">Hoothoot</a></li>
+							<li><a href="#Starly">Starly</a></li>
+							<li><a href="#Taillow">Taillow</a></li>
+							<li><a href="#Pidove">Pidove</a></li>
+							<li><a href="#Fletchling">Fletchling</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">INSETOS</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Caterpie">Caterpie</a></li>
+							<li><a href="#Weedle">Weedle</a></li>
+							<li><a href="#Scyther">Scyther</a></li>
+							<li><a href="#Wurmple">Wurmple</a></li>
+							<li><a href="#Heracross">Heracross</a></li>
+							<li><a href="#Grubbin">Grubbin</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">PEIXES</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Magikarp">Magikarp</a></li>
+							<li><a href="#Goldeen">Goldeen</a></li>
+							<li><a href="#Feebas">Feebas</a></li>
+							<li><a href="#Remoraid">Remoraid</a></li>
+							<li><a href="#Carvanha">Carvanha</a></li>
+							<li><a href="#Finneon">Finneon</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">ARTIFICIAIS</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Porygon">Porygon</a></li>
+							<li><a href="#Voltorb">Voltorb</a></li>
+							<li><a href="#Magnemite">Magnemite</a></li>
+							<li><a href="#Rotom">Rotom</a></li>
+							<li><a href="#Klink">Klink</a></li>
+							<li><a href="#Trubbish">Trubbish</a></li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<details class="caixa-detalhes">
+						<summary class="titulo-detalhes">LENDÁRIOS</summary>
+						<ul class="sublista-categoria">
+							<li><a href="#Mewtwo">Mewtwo</a></li>
+							<li><a href="#Articuno">Articuno</a></li>
+							<li><a href="#Lugia">Lugia</a></li>
+							<li><a href="#Rayquaza">Rayquaza</a></li>
+							<li><a href="#Kyogre">Kyogre</a></li>
+							<li><a href="#Groudon">Groudon</a></li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+		</aside>
+
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main class="conteudo-principal">
+
+			<!-- HOME -->
+			<section id="home" class="secao-home">
+				<div class="home-card">
+					<h2>Bem-vindo à Pokédex & Team Builder</h2>
+					<p>Sua enciclopédia definitiva. Navegue pelas categorias, veja os detalhes e clique em
+						<strong>Adicionar ao Time</strong> para montar sua equipe e descobrir as vantagens e
+						desvantagens estratégicas do seu grupo!
+					</p>
+				</div>
+			</section>
+
+			<!-- SEÇÃO: MEU TIME -->
+			<section id="meu-time" class="secao-pokemon secao-time-builder">
+				<h2>Meu Time (Máx: 6)</h2>
+				<div class="container-time">
+					<div id="grid-meu-time" class="grid-pokemon grid-time">
+						<p id="msg-time-vazio" class="msg-vazia">Seu time está vazio. Adicione Pokémon das categorias
+							abaixo!</p>
+					</div>
+
+					<div id="analise-time" class="analise-time oculto">
+						<h3>Análise da Equipe</h3>
+						<div class="analise-grid">
+							<div class="analise-card vantagem">
+								<h4>Forte contra</h4>
+								<ul id="lista-vantagens"></ul>
+							</div>
+							<div class="analise-card fraqueza">
+								<h4>Fraco contra</h4>
+								<ul id="lista-fraquezas"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- SEÇÕES DE CONTEÚDO POKEMON -->
+			<section id="iniciais" class="secao-pokemon">
+				<h2>Iniciais</h2>
+				<div class="grid-pokemon">
+					<article id="Bulbasaur" class="card-pokemon" data-nome="Bulbasaur" data-tipo="Planta/Venenoso"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/001.png">
+						<a href="#Bulbasaur" class="link-card">
+							<h3>Bulbasaur</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/001.png"
+									alt="Imagem do Bulbasaur" width="215" height="215" loading="lazy">
+								<figcaption>#001 - Planta/Venenoso</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Planta/Venenoso. Ele tem uma semente nas costas desde o nascimento.</p>
+					</article>
+
+					<article id="Charmander" class="card-pokemon" data-nome="Charmander" data-tipo="Fogo"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/004.png">
+						<a href="#Charmander" class="link-card">
+							<h3>Charmander</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/004.png"
+									alt="Imagem do Charmander" width="215" height="215" loading="lazy">
+								<figcaption>#004 - Fogo</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Fogo. A chama em sua cauda indica sua força vital.</p>
+					</article>
+
+					<article id="Squirtle" class="card-pokemon" data-nome="Squirtle" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/007.png">
+						<a href="#Squirtle" class="link-card">
+							<h3>Squirtle</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/007.png"
+									alt="Imagem do Squirtle" width="215" height="215" loading="lazy">
+								<figcaption>#007 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Sua concha não é apenas para proteção, mas para nadar rapidamente.
+						</p>
+					</article>
+
+					<article id="Chikorita" class="card-pokemon" data-nome="Chikorita" data-tipo="Planta"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/152.png">
+						<a href="#Chikorita" class="link-card">
+							<h3>Chikorita</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/152.png"
+									alt="Imagem da Chikorita" width="215" height="215" loading="lazy">
+								<figcaption>#152 - Planta</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Planta. Usa a folha em sua cabeça para medir a temperatura e a umidade do
+							ar.</p>
+					</article>
+
+					<article id="Cyndaquil" class="card-pokemon" data-nome="Cyndaquil" data-tipo="Fogo"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/155.png">
+						<a href="#Cyndaquil" class="link-card">
+							<h3>Cyndaquil</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/155.png"
+									alt="Imagem do Cyndaquil" width="215" height="215" loading="lazy">
+								<figcaption>#155 - Fogo</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Fogo. Solta chamas pelas costas quando está bravo ou assustado.</p>
+					</article>
+
+					<article id="Totodile" class="card-pokemon" data-nome="Totodile" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/158.png">
+						<a href="#Totodile" class="link-card">
+							<h3>Totodile</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/158.png"
+									alt="Imagem do Totodile" width="215" height="215" loading="lazy">
+								<figcaption>#158 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Tem mandíbulas fortes e o hábito de morder tudo o que vê pela
+							frente.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="roedores" class="secao-pokemon">
+				<h2>Roedores</h2>
+				<div class="grid-pokemon">
+					<article id="Rattata" class="card-pokemon" data-nome="Rattata" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/019.png">
+						<a href="#Rattata" class="link-card">
+							<h3>Rattata</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/019.png"
+									alt="Imagem do Rattata" width="215" height="215" loading="lazy">
+								<figcaption>#019 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. É muito comum e tem dentes fortes para roer qualquer coisa.</p>
+					</article>
+
+					<article id="Bidoof" class="card-pokemon" data-nome="Bidoof" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/399.png">
+						<a href="#Bidoof" class="link-card">
+							<h3>Bidoof</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/399.png"
+									alt="Imagem do Bidoof" width="215" height="215" loading="lazy">
+								<figcaption>#399 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. Conhecido por seus grandes dentes frontais e natureza calma.</p>
+					</article>
+
+					<article id="Sentret" class="card-pokemon" data-nome="Sentret" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/161.png">
+						<a href="#Sentret" class="link-card">
+							<h3>Sentret</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/161.png"
+									alt="Imagem do Sentret" width="215" height="215" loading="lazy">
+								<figcaption>#161 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. Ele se apoia em sua cauda para vigiar os arredores.</p>
+					</article>
+
+					<article id="Zigzagoon" class="card-pokemon" data-nome="Zigzagoon" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/263.png">
+						<a href="#Zigzagoon" class="link-card">
+							<h3>Zigzagoon</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/263.png"
+									alt="Imagem do Zigzagoon" width="215" height="215" loading="lazy">
+								<figcaption>#263 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. Anda sempre em zigue-zague e tem muita curiosidade por objetos
+							perdidos.</p>
+					</article>
+
+					<article id="Patrat" class="card-pokemon" data-nome="Patrat" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/504.png">
+						<a href="#Patrat" class="link-card">
+							<h3>Patrat</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/504.png"
+									alt="Imagem do Patrat" width="215" height="215" loading="lazy">
+								<figcaption>#504 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. Mantém alimentos nas bochechas e vigia o território por dias sem
+							dormir.</p>
+					</article>
+
+					<article id="Bunnelby" class="card-pokemon" data-nome="Bunnelby" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/659.png">
+						<a href="#Bunnelby" class="link-card">
+							<h3>Bunnelby</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/659.png"
+									alt="Imagem do Bunnelby" width="215" height="215" loading="lazy">
+								<figcaption>#659 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. Usa suas orelhas largas como pás para cavar buracos na terra
+							rapidamente.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="pikaclones" class="secao-pokemon">
+				<h2>Pikaclones</h2>
+				<div class="grid-pokemon">
+					<article id="Pichu" class="card-pokemon" data-nome="Pichu" data-tipo="Elétrico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/172.png">
+						<a href="#Pichu" class="link-card">
+							<h3>Pichu</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/172.png"
+									alt="Imagem do Pichu" width="215" height="215" loading="lazy">
+								<figcaption>#172 - Elétrico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico. A pré-evolução do Pikachu, ainda não controla bem sua
+							eletricidade.</p>
+					</article>
+
+					<article id="Plusle" class="card-pokemon" data-nome="Plusle" data-tipo="Elétrico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/311.png">
+						<a href="#Plusle" class="link-card">
+							<h3>Plusle</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/311.png"
+									alt="Imagem do Plusle" width="215" height="215" loading="lazy">
+								<figcaption>#311 - Elétrico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico. Ele torce por seus parceiros criando faíscas positivas.</p>
+					</article>
+
+					<article id="Minun" class="card-pokemon" data-nome="Minun" data-tipo="Elétrico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/312.png">
+						<a href="#Minun" class="link-card">
+							<h3>Minun</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/312.png"
+									alt="Imagem do Minun" width="215" height="215" loading="lazy">
+								<figcaption>#312 - Elétrico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico. Faz uma ótima dupla com o Plusle usando cargas negativas.</p>
+					</article>
+
+					<article id="Pachirisu" class="card-pokemon" data-nome="Pachirisu" data-tipo="Elétrico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/417.png">
+						<a href="#Pachirisu" class="link-card">
+							<h3>Pachirisu</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/417.png"
+									alt="Imagem do Pachirisu" width="215" height="215" loading="lazy">
+								<figcaption>#417 - Elétrico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico. Um esquilo elétrico que guarda eletricidade em suas bochechas.
+						</p>
+					</article>
+
+					<article id="Emolga" class="card-pokemon" data-nome="Emolga" data-tipo="Elétrico/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/587.png">
+						<a href="#Emolga" class="link-card">
+							<h3>Emolga</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/587.png"
+									alt="Imagem do Emolga" width="215" height="215" loading="lazy">
+								<figcaption>#587 - Elétrico/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico/Voador. Plana de árvore em árvore liberando eletricidade pelas
+							asas.</p>
+					</article>
+
+					<article id="Dedenne" class="card-pokemon" data-nome="Dedenne" data-tipo="Elétrico/Fada"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/702.png">
+						<a href="#Dedenne" class="link-card">
+							<h3>Dedenne</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/702.png"
+									alt="Imagem do Dedenne" width="215" height="215" loading="lazy">
+								<figcaption>#702 - Elétrico/Fada</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico/Fada. Usa seus bigodes como antenas para enviar e receber sinais
+							elétricos.</p>
+					</article>
+
+					<article id="Morpeko" class="card-pokemon" data-nome="Morpeko" data-tipo="Elétrico/Sombrio"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/877.png">
+						<a href="#Morpeko" class="link-card">
+							<h3>Morpeko</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/877.png"
+									alt="Imagem do Morpeko" width="215" height="215" loading="lazy">
+								<figcaption>#877 - Elétrico/Sombrio</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico/Sombrio. Muda de humor e aparência quando sente muita fome.</p>
+					</article>
+
+					<article id="Mimikyu" class="card-pokemon" data-nome="Mimikyu" data-tipo="Fantasma/Fada"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/778.png">
+						<a href="#Mimikyu" class="link-card">
+							<h3>Mimikyu</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/778.png"
+									alt="Imagem do Mimikyu" width="215" height="215" loading="lazy">
+								<figcaption>#778 - Fantasma/Fada</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Fantasma/Fada. Esconde sua verdadeira aparência sob um disfarce em formato
+							de Pikachu para tentar fazer amigos sem assustar as pessoas.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="aves" class="secao-pokemon">
+				<h2>Aves</h2>
+				<div class="grid-pokemon">
+					<article id="Pidgey" class="card-pokemon" data-nome="Pidgey" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/016.png">
+						<a href="#Pidgey" class="link-card">
+							<h3>Pidgey</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/016.png"
+									alt="Imagem do Pidgey" width="215" height="215" loading="lazy">
+								<figcaption>#016 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Muito dócil e prefere fugir a lutar.</p>
+					</article>
+
+					<article id="Hoothoot" class="card-pokemon" data-nome="Hoothoot" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/163.png">
+						<a href="#Hoothoot" class="link-card">
+							<h3>Hoothoot</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/163.png"
+									alt="Imagem do Hoothoot" width="215" height="215" loading="lazy">
+								<figcaption>#163 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Tem um relógio interno perfeito e se apoia em uma perna só.
+						</p>
+					</article>
+
+					<article id="Starly" class="card-pokemon" data-nome="Starly" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/396.png">
+						<a href="#Starly" class="link-card">
+							<h3>Starly</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/396.png"
+									alt="Imagem do Starly" width="215" height="215" loading="lazy">
+								<figcaption>#396 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Eles andam em grandes bandos, pois são pequenos e fracos
+							sozinhos.</p>
+					</article>
+
+					<article id="Taillow" class="card-pokemon" data-nome="Taillow" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/276.png">
+						<a href="#Taillow" class="link-card">
+							<h3>Taillow</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/276.png"
+									alt="Imagem do Taillow" width="215" height="215" loading="lazy">
+								<figcaption>#276 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Muito corajoso, enfrenta oponentes maiores sem hesitar.</p>
+					</article>
+
+					<article id="Pidove" class="card-pokemon" data-nome="Pidove" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/519.png">
+						<a href="#Pidove" class="link-card">
+							<h3>Pidove</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/519.png"
+									alt="Imagem do Pidove" width="215" height="215" loading="lazy">
+								<figcaption>#519 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Vive em parques e cidades, sendo bastante esquecido sobre
+							suas ordens.</p>
+					</article>
+
+					<article id="Fletchling" class="card-pokemon" data-nome="Fletchling" data-tipo="Normal/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/663.png">
+						<a href="#Fletchling" class="link-card">
+							<h3>Fletchling</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/663.png"
+									alt="Imagem do Fletchling" width="215" height="215" loading="lazy">
+								<figcaption>#663 - Normal/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal/Voador. Amigável e barulhento, ataca ferozmente quem entra em seu
+							território.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="insetos" class="secao-pokemon">
+				<h2>Insetos</h2>
+				<div class="grid-pokemon">
+					<article id="Caterpie" class="card-pokemon" data-nome="Caterpie" data-tipo="Inseto"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/010.png">
+						<a href="#Caterpie" class="link-card">
+							<h3>Caterpie</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/010.png"
+									alt="Imagem do Caterpie" width="215" height="215" loading="lazy">
+								<figcaption>#010 - Inseto</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto. Ele libera um cheiro forte por suas antenas para afastar
+							predadores.</p>
+					</article>
+
+					<article id="Weedle" class="card-pokemon" data-nome="Weedle" data-tipo="Inseto/Venenoso"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/013.png">
+						<a href="#Weedle" class="link-card">
+							<h3>Weedle</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/013.png"
+									alt="Imagem do Weedle" width="215" height="215" loading="lazy">
+								<figcaption>#013 - Inseto/Venenoso</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto/Venenoso. Possui um ferrão venenoso em sua cabeça.</p>
+					</article>
+
+					<article id="Scyther" class="card-pokemon" data-nome="Scyther" data-tipo="Inseto/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/123.png">
+						<a href="#Scyther" class="link-card">
+							<h3>Scyther</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/123.png"
+									alt="Imagem do Scyther" width="215" height="215" loading="lazy">
+								<figcaption>#123 - Inseto/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto/Voador. Rápido como um ninja, ataca com suas foices afiadas.</p>
+					</article>
+
+					<article id="Wurmple" class="card-pokemon" data-nome="Wurmple" data-tipo="Inseto"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/265.png">
+						<a href="#Wurmple" class="link-card">
+							<h3>Wurmple</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/265.png"
+									alt="Imagem do Wurmple" width="215" height="215" loading="lazy">
+								<figcaption>#265 - Inseto</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto. Vive em florestas comendo folhas em abundância até evoluir.</p>
+					</article>
+
+					<article id="Heracross" class="card-pokemon" data-nome="Heracross" data-tipo="Inseto/Lutador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/214.png">
+						<a href="#Heracross" class="link-card">
+							<h3>Heracross</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/214.png"
+									alt="Imagem do Heracross" width="215" height="215" loading="lazy">
+								<figcaption>#214 - Inseto/Lutador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto/Lutador. Usa seu chifre superpotente para arremessar inimigos
+							longe.</p>
+					</article>
+
+					<article id="Grubbin" class="card-pokemon" data-nome="Grubbin" data-tipo="Inseto"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/736.png">
+						<a href="#Grubbin" class="link-card">
+							<h3>Grubbin</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/736.png"
+									alt="Imagem do Grubbin" width="215" height="215" loading="lazy">
+								<figcaption>#736 - Inseto</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Inseto. Usa suas grandes mandíbulas como arma de defesa e para escavar.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="peixes" class="secao-pokemon">
+				<h2>Peixes</h2>
+				<div class="grid-pokemon">
+					<article id="Magikarp" class="card-pokemon" data-nome="Magikarp" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/129.png">
+						<a href="#Magikarp" class="link-card">
+							<h3>Magikarp</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/129.png"
+									alt="Imagem do Magikarp" width="215" height="215" loading="lazy">
+								<figcaption>#129 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Famoso por ser muito fraco, mas pode pular montanhas inteiras com
+							seu Splash.</p>
+					</article>
+
+					<article id="Goldeen" class="card-pokemon" data-nome="Goldeen" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/118.png">
+						<a href="#Goldeen" class="link-card">
+							<h3>Goldeen</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/118.png"
+									alt="Imagem do Goldeen" width="215" height="215" loading="lazy">
+								<figcaption>#118 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Suas nadadeiras lembram um elegante vestido de baile.</p>
+					</article>
+
+					<article id="Feebas" class="card-pokemon" data-nome="Feebas" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/349.png">
+						<a href="#Feebas" class="link-card">
+							<h3>Feebas</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/349.png"
+									alt="Imagem do Feebas" width="215" height="215" loading="lazy">
+								<figcaption>#349 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Considerado feio, mas muito resistente e capaz de viver em qualquer
+							rio.</p>
+					</article>
+
+					<article id="Remoraid" class="card-pokemon" data-nome="Remoraid" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/223.png">
+						<a href="#Remoraid" class="link-card">
+							<h3>Remoraid</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/223.png"
+									alt="Imagem do Remoraid" width="215" height="215" loading="lazy">
+								<figcaption>#223 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Dispara jatos de água com alta precisão para derrubar presas em
+							movimento.</p>
+					</article>
+
+					<article id="Carvanha" class="card-pokemon" data-nome="Carvanha" data-tipo="Água/Sombrio"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/318.png">
+						<a href="#Carvanha" class="link-card">
+							<h3>Carvanha</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/318.png"
+									alt="Imagem do Carvanha" width="215" height="215" loading="lazy">
+								<figcaption>#318 - Água/Sombrio</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água/Sombrio. Ataca em cardumes e possui dentes afiados capazes de
+							perfurar barcos.</p>
+					</article>
+
+					<article id="Finneon" class="card-pokemon" data-nome="Finneon" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/456.png">
+						<a href="#Finneon" class="link-card">
+							<h3>Finneon</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/456.png"
+									alt="Imagem do Finneon" width="215" height="215" loading="lazy">
+								<figcaption>#456 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Conhecido como a borboleta do mar devido ao brilho de suas
+							nadadeiras duplas.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="artificiais" class="secao-pokemon">
+				<h2>Artificiais</h2>
+				<div class="grid-pokemon">
+					<article id="Porygon" class="card-pokemon" data-nome="Porygon" data-tipo="Normal"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/137.png">
+						<a href="#Porygon" class="link-card">
+							<h3>Porygon</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/137.png"
+									alt="Imagem do Porygon" width="215" height="215" loading="lazy">
+								<figcaption>#137 - Normal</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Normal. O primeiro Pokémon criado inteiramente por códigos de computador.
+						</p>
+					</article>
+
+					<article id="Voltorb" class="card-pokemon" data-nome="Voltorb" data-tipo="Elétrico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/100.png">
+						<a href="#Voltorb" class="link-card">
+							<h3>Voltorb</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/100.png"
+									alt="Imagem do Voltorb" width="215" height="215" loading="lazy">
+								<figcaption>#100 - Elétrico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico. Tem o formato de uma Poké Bola e costuma explodir sem aviso.</p>
+					</article>
+
+					<article id="Magnemite" class="card-pokemon" data-nome="Magnemite" data-tipo="Elétrico/Aço"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/081.png">
+						<a href="#Magnemite" class="link-card">
+							<h3>Magnemite</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/081.png"
+									alt="Imagem do Magnemite" width="215" height="215" loading="lazy">
+								<figcaption>#081 - Elétrico/Aço</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico/Aço. Desafia a gravidade com energia eletromagnética e se
+							alimenta de eletricidade.</p>
+					</article>
+
+					<article id="Rotom" class="card-pokemon" data-nome="Rotom" data-tipo="Elétrico/Fantasma"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/479.png">
+						<a href="#Rotom" class="link-card">
+							<h3>Rotom</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/479.png"
+									alt="Imagem do Rotom" width="215" height="215" loading="lazy">
+								<figcaption>#479 - Elétrico/Fantasma</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Elétrico/Fantasma. Feito de plasma, consegue se infiltrar e controlar
+							aparelhos eletrônicos.</p>
+					</article>
+
+					<article id="Klink" class="card-pokemon" data-nome="Klink" data-tipo="Aço"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/599.png">
+						<a href="#Klink" class="link-card">
+							<h3>Klink</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/599.png"
+									alt="Imagem do Klink" width="215" height="215" loading="lazy">
+								<figcaption>#599 - Aço</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Aço. Composto por duas engrenagens interligadas que giram continuamente
+							para gerar energia.</p>
+					</article>
+
+					<article id="Trubbish" class="card-pokemon" data-nome="Trubbish" data-tipo="Venenoso"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/568.png">
+						<a href="#Trubbish" class="link-card">
+							<h3>Trubbish</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/568.png"
+									alt="Imagem do Trubbish" width="215" height="215" loading="lazy">
+								<figcaption>#568 - Venenoso</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Venenoso. Surgiu da combinação de sacos de lixo e resíduos industriais em
+							decomposição.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="lendarios" class="secao-pokemon">
+				<h2>Lendários</h2>
+				<div class="grid-pokemon">
+					<article id="Mewtwo" class="card-pokemon" data-nome="Mewtwo" data-tipo="Psíquico"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/150.png">
+						<a href="#Mewtwo" class="link-card">
+							<h3>Mewtwo</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/150.png"
+									alt="Imagem do Mewtwo" width="215" height="215" loading="lazy">
+								<figcaption>#150 - Psíquico</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Psíquico. Criado artificialmente em laboratório através do DNA do Mew.</p>
+					</article>
+
+					<article id="Articuno" class="card-pokemon" data-nome="Articuno" data-tipo="Gelo/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/144.png">
+						<a href="#Articuno" class="link-card">
+							<h3>Articuno</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/144.png"
+									alt="Imagem do Articuno" width="215" height="215" loading="lazy">
+								<figcaption>#144 - Gelo/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Gelo/Voador. Um pássaro lendário que pode congelar a umidade do ar e criar
+							neve ao voar.</p>
+					</article>
+
+					<article id="Lugia" class="card-pokemon" data-nome="Lugia" data-tipo="Psíquico/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/249.png">
+						<a href="#Lugia" class="link-card">
+							<h3>Lugia</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/249.png"
+									alt="Imagem do Lugia" width="215" height="215" loading="lazy">
+								<figcaption>#249 - Psíquico/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Psíquico/Voador. O guardião dos mares, cujas asas podem causar tempestades
+							que duram semanas.</p>
+					</article>
+
+					<article id="Rayquaza" class="card-pokemon" data-nome="Rayquaza" data-tipo="Dragão/Voador"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/384.png">
+						<a href="#Rayquaza" class="link-card">
+							<h3>Rayquaza</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/384.png"
+									alt="Imagem do Rayquaza" width="215" height="215" loading="lazy">
+								<figcaption>#384 - Dragão/Voador</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Dragão/Voador. Vive na camada de ozônio há centenas de milhões de anos
+							protegendo o planeta.</p>
+					</article>
+
+					<article id="Kyogre" class="card-pokemon" data-nome="Kyogre" data-tipo="Água"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/382.png">
+						<a href="#Kyogre" class="link-card">
+							<h3>Kyogre</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/382.png"
+									alt="Imagem do Kyogre" width="215" height="215" loading="lazy">
+								<figcaption>#382 - Água</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Água. Diz a lenda que ele expandiu os oceanos criando chuvas torrenciais.
+						</p>
+					</article>
+
+					<article id="Groudon" class="card-pokemon" data-nome="Groudon" data-tipo="Terrestre"
+						data-img="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/383.png">
+						<a href="#Groudon" class="link-card">
+							<h3>Groudon</h3>
+							<figure class="figura-pokemon">
+								<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/383.png"
+									alt="Imagem do Groudon" width="215" height="215" loading="lazy">
+								<figcaption>#383 - Terrestre</figcaption>
+							</figure>
+						</a>
+						<p>Um Pokémon do tipo Terrestre. Personifica a própria terra e tem o poder de evaporar a água
+							com calor extremo.</p>
+					</article>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- RODAPÉ -->
+	<footer id="rodape" class="rodape">
+		<p>Pokédex e Team Builder desenvolvidos para o Trabalho Individual I - SCOM (2026).</p>
+		<p><small>Os dados e imagens de Pokémon pertencem à Nintendo e The Pokémon Company.</small></p>
+
+		<nav aria-label="Navegação do rodapé">
+			<a href="#topo" class="link-topo">⬆ Voltar ao topo</a>
+		</nav>
+	</footer>
+
+	<script>
+		const regrasTipos = {
+			"Fogo": { vantagens: ["Planta", "Inseto", "Aço", "Gelo"], fraquezas: ["Água", "Terrestre", "Pedra"] },
+			"Água": { vantagens: ["Fogo", "Terrestre", "Pedra"], fraquezas: ["Planta", "Elétrico"] },
+			"Planta": { vantagens: ["Água", "Terrestre", "Pedra"], fraquezas: ["Fogo", "Gelo", "Voador", "Inseto", "Venenoso"] },
+			"Venenoso": { vantagens: ["Planta", "Fada"], fraquezas: ["Terrestre", "Psíquico"] },
+			"Elétrico": { vantagens: ["Água", "Voador"], fraquezas: ["Terrestre"] },
+			"Normal": { vantagens: [], fraquezas: ["Lutador"] },
+			"Voador": { vantagens: ["Planta", "Lutador", "Inseto"], fraquezas: ["Elétrico", "Gelo", "Pedra"] },
+			"Inseto": { vantagens: ["Planta", "Psíquico", "Sombrio"], fraquezas: ["Fogo", "Voador", "Pedra"] },
+			"Fada": { vantagens: ["Lutador", "Dragão", "Sombrio"], fraquezas: ["Venenoso", "Aço"] },
+			"Gelo": { vantagens: ["Planta", "Terrestre", "Voador", "Dragão"], fraquezas: ["Fogo", "Lutador", "Pedra", "Aço"] },
+			"Aço": { vantagens: ["Gelo", "Fada", "Pedra"], fraquezas: ["Fogo", "Lutador", "Terrestre"] },
+			"Psíquico": { vantagens: ["Lutador", "Venenoso"], fraquezas: ["Inseto", "Fantasma", "Sombrio"] },
+			"Dragão": { vantagens: ["Dragão"], fraquezas: ["Gelo", "Fada", "Dragão"] },
+			"Terrestre": { vantagens: ["Fogo", "Elétrico", "Venenoso", "Pedra", "Aço"], fraquezas: ["Água", "Planta", "Gelo"] },
+			"Sombrio": { vantagens: ["Psíquico", "Fantasma"], fraquezas: ["Lutador", "Inseto", "Fada"] },
+			"Fantasma": { vantagens: ["Psíquico", "Fantasma"], fraquezas: ["Fantasma", "Sombrio"] },
+			"Lutador": { vantagens: ["Normal", "Gelo", "Pedra", "Sombrio", "Aço"], fraquezas: ["Voador", "Psíquico", "Fada"] },
+			"Pedra": { vantagens: ["Fogo", "Gelo", "Voador", "Inseto"], fraquezas: ["Água", "Planta", "Lutador", "Terrestre", "Aço"] }
+		};
+
+		let meuTime = [];
+		const maxTime = 6;
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const cards = document.querySelectorAll('.card-pokemon');
+
+			cards.forEach(card => {
+				const nome = card.getAttribute('data-nome');
+				const tipo = card.getAttribute('data-tipo');
+				const img = card.getAttribute('data-img');
+
+				// Esconde as descrições no carregamento
+				const descricao = card.querySelector('p');
+				if (descricao) descricao.classList.add('oculto', 'descricao-pokemon');
+
+				// Mostrar/ocultar descrição ao clicar no card
+				const linkCard = card.querySelector('.link-card');
+				if (linkCard) {
+					linkCard.addEventListener('click', (event) => {
+
+						event.preventDefault();
+						if (descricao) descricao.classList.toggle('oculto');
+					});
+				}
+				// só cria o botão se os dados estiverem presentes
+				if (nome && tipo && img) {
+					const btn = document.createElement('button');
+					btn.className = 'btn-adicionar';
+					btn.innerHTML = '➕ Adicionar';
+					btn.onclick = (e) => {
+						e.preventDefault();
+						adicionarPokemon(nome, tipo, img);
+					};
+					card.appendChild(btn);
+				}
+
+				// Revelar descrição ao clicar no menu lateral
+				const linksMenuLateral = document.querySelectorAll('.sublista-categoria a');
+				linksMenuLateral.forEach(link => {
+					link.addEventListener('click', () => {
+						const alvoId = link.getAttribute('href').substring(1);
+						const cardAlvo = document.getElementById(alvoId);
+						if (cardAlvo) {
+							const desc = cardAlvo.querySelector('p');
+							if (desc) desc.classList.remove('oculto');
+						}
+					});
+				});
+			});
+		});
+
+		function adicionarPokemon(nome, tipo, img) {
+			if (meuTime.length >= maxTime) {
+				alert("Seu time já está cheio (6 Pokémon).");
+				return;
+			}
+			if (meuTime.find(p => p.nome === nome)) {
+				alert(`${nome} já está no seu time!`);
+				return;
+			}
+			meuTime.push({ nome, tipo, img });
+			atualizarInterfaceTime();
+		}
+
+		function removerPokemon(index) {
+			meuTime.splice(index, 1);
+			atualizarInterfaceTime();
+		}
+
+		function atualizarInterfaceTime() {
+			const grid = document.getElementById('grid-meu-time');
+
+			if (meuTime.length === 0) {
+				// Restaura a mensagem inicial exatamente como no estado original
+				grid.innerHTML = '<p id="msg-time-vazio" class="msg-vazia">Seu time está vazio. Adicione Pokémon das categorias abaixo!</p>';
+			} else {
+				grid.innerHTML = '';
+				meuTime.forEach((pokemon, index) => {
+					const html = `
+					<article class="card-time">
+						<img src="${pokemon.img}" alt="${pokemon.nome}" width="80" height="80">
+						<h4>${pokemon.nome}</h4>
+						<p><small>${pokemon.tipo}</small></p>
+						<button class="btn-remover" onclick="removerPokemon(${index})">❌ Remover</button>
+					</article>
+				`;
+					grid.innerHTML += html;
+				});
+			}
+
+			// Executa a análise (que oculta as vantagens/fraquezas se meuTime estiver vazio)
+			analisarTime();
+		}
+
+		function analisarTime() {
+			const analise = document.getElementById('analise-time');
+			const listaVantagens = document.getElementById('lista-vantagens');
+			const listaFraquezas = document.getElementById('lista-fraquezas');
+
+			if (!analise || !listaVantagens || !listaFraquezas) return;
+
+			// TIME VAZIO 
+			if (meuTime.length === 0) {
+				listaVantagens.innerHTML = '';
+				listaFraquezas.innerHTML = '';
+				analise.classList.add('oculto');
+				return;
+			}
+
+			// Time tem Pokémon → mostra a análise e calcula
+			analise.classList.remove('oculto');
+
+			let forcas = new Set();
+			let fraquezas = new Set();
+
+			meuTime.forEach(pokemon => {
+				const tipos = pokemon.tipo.split('/');
+				tipos.forEach(t => {
+					if (regrasTipos[t]) {
+						regrasTipos[t].vantagens.forEach(v => forcas.add(v));
+						regrasTipos[t].fraquezas.forEach(f => fraquezas.add(f));
+					}
+				});
+			});
+
+			let fraquezasReais = [...fraquezas].filter(f => !forcas.has(f));
+
+			listaVantagens.innerHTML = [...forcas].length
+				? [...forcas].map(f => `<li>✔️ ${f}</li>`).join('')
+				: '<li>Nenhuma vantagem clara</li>';
+			listaFraquezas.innerHTML = fraquezasReais.length
+				? fraquezasReais.map(f => `<li>⚠️ ${f}</li>`).join('')
+				: '<li>Nenhuma fraqueza crítica!</li>';
+		}
+
+	</script>
+
+</body>
+
+</html>
