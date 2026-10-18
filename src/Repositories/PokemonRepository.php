@@ -12,18 +12,24 @@ use PDOException;
  */
 class PokemonRepository
 {
+    private const CAMPOS = 'id, nome, tipo, categoria, numero, descricao, imagem_url, criado_em';
+
     public function __construct(private PDO $pdo)
     {
     }
 
     /** Lista paginada com filtros opcionais. Retorna ['items' => [...], 'total' => N]. */
-    public function paginate(int $page, int $limit, ?string $tipo, ?string $busca): array
+    public function paginate(int $page, int $limit, ?string $tipo, ?string $busca, ?string $categoria = null): array
     {
         $where  = [];
         $params = [];
         if ($tipo !== null) {
             $where[] = 'tipo = :tipo';
             $params[':tipo'] = $tipo;
+        }
+        if ($categoria !== null) {
+            $where[] = 'categoria = :categoria';
+            $params[':categoria'] = $categoria;
         }
         if ($busca !== null) {
             $where[] = 'nome LIKE :busca';
@@ -36,7 +42,7 @@ class PokemonRepository
         $total = (int) $st->fetchColumn();
 
         $st = $this->pdo->prepare(
-            'SELECT id, nome, tipo, descricao, imagem_url, criado_em FROM pokemons'
+            'SELECT ' . self::CAMPOS . ' FROM pokemons'
             . $filtro . ' ORDER BY id LIMIT :limite OFFSET :deslocamento'
         );
         foreach ($params as $chave => $valor) {
@@ -51,23 +57,28 @@ class PokemonRepository
 
     public function findById(int $id): ?array
     {
-        $st = $this->pdo->prepare(
-            'SELECT id, nome, tipo, descricao, imagem_url, criado_em FROM pokemons WHERE id = :id'
-        );
+        $st = $this->pdo->prepare('SELECT ' . self::CAMPOS . ' FROM pokemons WHERE id = :id');
         $st->execute(['id' => $id]);
         return $st->fetch() ?: null;
     }
 
-    public function create(string $nome, string $tipo, ?string $descricao, ?string $imagemUrl, int $criadoPor): int
-    {
+    public function create(
+        string $nome,
+        string $tipo,
+        string $categoria,
+        ?int $numero,
+        ?string $descricao,
+        ?string $imagemUrl,
+        int $criadoPor
+    ): int {
         try {
             $st = $this->pdo->prepare(
-                'INSERT INTO pokemons (nome, tipo, descricao, imagem_url, criado_por)
-                 VALUES (:nome, :tipo, :descricao, :imagem, :criado_por)'
+                'INSERT INTO pokemons (nome, tipo, categoria, numero, descricao, imagem_url, criado_por)
+                 VALUES (:nome, :tipo, :categoria, :numero, :descricao, :imagem, :criado_por)'
             );
             $st->execute([
-                'nome' => $nome, 'tipo' => $tipo, 'descricao' => $descricao,
-                'imagem' => $imagemUrl, 'criado_por' => $criadoPor,
+                'nome' => $nome, 'tipo' => $tipo, 'categoria' => $categoria, 'numero' => $numero,
+                'descricao' => $descricao, 'imagem' => $imagemUrl, 'criado_por' => $criadoPor,
             ]);
             return (int) $this->pdo->lastInsertId();
         } catch (PDOException $e) {
@@ -76,16 +87,25 @@ class PokemonRepository
         }
     }
 
-    public function update(int $id, string $nome, string $tipo, ?string $descricao, ?string $imagemUrl): void
-    {
+    public function update(
+        int $id,
+        string $nome,
+        string $tipo,
+        string $categoria,
+        ?int $numero,
+        ?string $descricao,
+        ?string $imagemUrl
+    ): void {
         try {
             $st = $this->pdo->prepare(
-                'UPDATE pokemons SET nome = :nome, tipo = :tipo, descricao = :descricao, imagem_url = :imagem
+                'UPDATE pokemons
+                 SET nome = :nome, tipo = :tipo, categoria = :categoria, numero = :numero,
+                     descricao = :descricao, imagem_url = :imagem
                  WHERE id = :id'
             );
             $st->execute([
-                'nome' => $nome, 'tipo' => $tipo, 'descricao' => $descricao,
-                'imagem' => $imagemUrl, 'id' => $id,
+                'nome' => $nome, 'tipo' => $tipo, 'categoria' => $categoria, 'numero' => $numero,
+                'descricao' => $descricao, 'imagem' => $imagemUrl, 'id' => $id,
             ]);
         } catch (PDOException $e) {
             $this->tratarDuplicado($e);
