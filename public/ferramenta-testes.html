@@ -1,60 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<title>Ferramenta de testes da API (apenas desenvolvimento)</title>
-<style>
- body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem}
- fieldset{margin-bottom:1rem} input{margin:.2rem;padding:.4rem;width:220px}
- button{padding:.4rem .8rem;margin:.2rem;cursor:pointer}
- pre{background:#111;color:#0f0;padding:1rem;min-height:8rem;white-space:pre-wrap}
-</style>
+  <meta charset="UTF-8">
+  <title>Ferramenta de testes da API (apenas desenvolvimento)</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem
+    }
+
+    fieldset {
+      margin-bottom: 1rem
+    }
+
+    input,
+    select,
+    textarea {
+      margin: .2rem;
+      padding: .4rem
+    }
+
+    input {
+      width: 220px
+    }
+
+    textarea {
+      width: 95%;
+      height: 5rem;
+      font-family: monospace
+    }
+
+    button {
+      padding: .4rem .8rem;
+      margin: .2rem;
+      cursor: pointer
+    }
+
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 1rem;
+      min-height: 8rem;
+      white-space: pre-wrap
+    }
+  </style>
 </head>
+
 <body>
-<h1>Testes da API</h1>
-<p>Página só para desenvolvimento. Remova antes da entrega (ou troque por telas reais).</p>
+  <h1>Testes da API</h1>
+  <p>Página só para desenvolvimento. Remova antes da entrega (ou troque por telas reais).</p>
 
-<fieldset><legend>Cadastro</legend>
- <input id="rn" placeholder="Nome"><input id="re" placeholder="E-mail"><input id="rs" type="password" placeholder="Senha">
- <button id="bReg">Cadastrar</button>
-</fieldset>
+  <fieldset>
+    <legend>Cadastro</legend>
+    <input id="rn" placeholder="Nome"><input id="re" placeholder="E-mail"><input id="rs" type="password"
+      placeholder="Senha">
+    <button id="bReg">Cadastrar</button>
+  </fieldset>
 
-<fieldset><legend>Login</legend>
- <input id="le" placeholder="E-mail"><input id="ls" type="password" placeholder="Senha">
- <button id="bLogin">Entrar</button>
- <button id="bLogout">Logout</button>
- <button id="bMe">Quem sou eu</button>
- <button id="bAdmin">Listar usuários (admin)</button>
- <button id="bNoCsrf">POST sem token CSRF</button>
-</fieldset>
+  <fieldset>
+    <legend>Login</legend>
+    <input id="le" placeholder="E-mail"><input id="ls" type="password" placeholder="Senha">
+    <button id="bLogin">Entrar</button>
+    <button id="bLogout">Logout</button>
+    <button id="bMe">Quem sou eu</button>
+    <button id="bAdmin">Listar usuários (admin)</button>
+    <button id="bNoCsrf">POST sem token CSRF</button>
+  </fieldset>
 
-<pre id="out">Resultado aparece aqui.</pre>
+  <fieldset>
+    <legend>Console de requisições</legend>
+    <select id="cm">
+      <option>GET</option>
+      <option>POST</option>
+      <option>PUT</option>
+      <option>DELETE</option>
+    </select>
+    <input id="cp" value="/pokemons" style="width:400px">
+    <button id="bSend">Enviar</button><br>
+    <textarea id="cb" placeholder='Corpo JSON, ex.: {"nome":"Mewtwo","tipo":"Psíquico"}'></textarea>
+    <p>Atalhos:
+      <button data-m="GET" data-p="/pokemons?page=1&limit=3">Pokémon (paginado)</button>
+      <button data-m="GET" data-p="/pokemons?busca=char">Buscar "char"</button>
+      <button data-m="GET" data-p="/times">Meus times</button>
+    </p>
+  </fieldset>
 
-<script>
-const base = location.pathname.replace(/[^/]*$/, '') + 'api';
-const out = document.getElementById('out');
-const $ = id => document.getElementById(id);
+  <pre id="out">Resultado aparece aqui.</pre>
 
-async function csrf() {
-  const r = await fetch(base + '/csrf', {credentials: 'same-origin'});
-  return (await r.json()).data.csrf_token;
-}
-async function api(method, path, body, withToken = true) {
-  const headers = {'Content-Type': 'application/json'};
-  if (method !== 'GET' && withToken) headers['X-CSRF-Token'] = await csrf();
-  const r = await fetch(base + path, {
-    method, credentials: 'same-origin', headers,
-    body: body ? JSON.stringify(body) : undefined
-  });
-  const j = await r.json();
-  out.textContent = method + ' ' + path + '  ->  HTTP ' + r.status + '\n' + JSON.stringify(j, null, 2);
-}
-$('bReg').onclick    = () => api('POST', '/auth/register', {nome: $('rn').value, email: $('re').value, senha: $('rs').value});
-$('bLogin').onclick  = () => api('POST', '/auth/login', {email: $('le').value, senha: $('ls').value});
-$('bLogout').onclick = () => api('POST', '/auth/logout');
-$('bMe').onclick     = () => api('GET', '/auth/me');
-$('bAdmin').onclick  = () => api('GET', '/admin/usuarios');
-$('bNoCsrf').onclick = () => api('POST', '/auth/logout', null, false);
-</script>
+  <script>
+    const base = location.pathname.replace(/[^/]*$/, '') + 'api';
+    const out = document.getElementById('out');
+    const $ = id => document.getElementById(id);
+
+    async function csrf() {
+      const r = await fetch(base + '/csrf', {credentials: 'same-origin'});
+      return (await r.json()).data.csrf_token;
+    }
+    async function api(method, path, body, withToken = true) {
+      const headers = {'Content-Type': 'application/json'};
+      if (method !== 'GET' && withToken) headers['X-CSRF-Token'] = await csrf();
+      const r = await fetch(base + path, {
+        method, credentials: 'same-origin', headers,
+        body: body ? JSON.stringify(body) : undefined
+      });
+      const j = await r.json();
+      out.textContent = method + ' ' + path + '  ->  HTTP ' + r.status + '\n' + JSON.stringify(j, null, 2);
+    }
+    $('bReg').onclick = () => api('POST', '/auth/register', {nome: $('rn').value, email: $('re').value, senha: $('rs').value});
+    $('bLogin').onclick = () => api('POST', '/auth/login', {email: $('le').value, senha: $('ls').value});
+    $('bLogout').onclick = () => api('POST', '/auth/logout');
+    $('bMe').onclick = () => api('GET', '/auth/me');
+    $('bAdmin').onclick = () => api('GET', '/admin/usuarios');
+    $('bNoCsrf').onclick = () => api('POST', '/auth/logout', null, false);
+
+    $('bSend').onclick = () => {
+      let body = null;
+      const txt = $('cb').value.trim();
+      if (txt) {
+        try {body = JSON.parse(txt);}
+        catch (e) {out.textContent = 'JSON inválido no corpo: ' + e.message; return;}
+      }
+      api($('cm').value, $('cp').value, body);
+    };
+    document.querySelectorAll('button[data-m]').forEach(b => {
+      b.onclick = () => {$('cm').value = b.dataset.m; $('cp').value = b.dataset.p; api(b.dataset.m, b.dataset.p);};
+    });
+  </script>
 </body>
+
 </html>
