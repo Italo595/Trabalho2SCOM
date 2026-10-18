@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>POKEDEX & TEAM BUILDER</title>
+	<link rel="stylesheet" href="css/Trabalho1.css" />
+	<link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body id="topo">
+	<!-- CABEÇALHO -->
+	<header class="cabecalho">
+		<div class="cabecalho-esquerda">
+			<input type="checkbox" id="toggle-aside" class="input-toggle" />
+			<label for="toggle-aside" class="btn-toggle-aside" aria-label="Abrir menu de categorias">
+				☰ Categorias
+			</label>
+			<h1>GUIA SOBRE POKEDEX</h1>
+		</div>
+
+		<nav>
+			<ul class="menu-navegacao" id="menu-topo"></ul>
+		</nav>
+
+		<div class="area-usuario" id="area-usuario"></div>
+	</header>
+
+	<div class="container-conteudo">
+		<!-- BARRA LATERAL -->
+		<aside class="menu-lateral">
+			<h3>Categorias</h3>
+			<ul class="lista-categorias" id="menu-lateral"></ul>
+		</aside>
+
+		<!-- CONTEÚDO PRINCIPAL -->
+		<main class="conteudo-principal">
+
+			<!-- HOME -->
+			<section id="home" class="secao-home">
+				<div class="home-card">
+					<h2>Bem-vindo à Pokédex & Team Builder</h2>
+					<p>Sua enciclopédia definitiva. Navegue pelas categorias, veja os detalhes e, depois de entrar na
+						sua conta, clique em <strong>Adicionar</strong> para montar sua equipe e descobrir as
+						vantagens e desvantagens estratégicas do seu grupo. O seu time fica salvo!
+					</p>
+				</div>
+			</section>
+
+			<!-- PAINEL DO ADMINISTRADOR (só aparece para o perfil admin) -->
+			<section id="painel-admin" class="secao-pokemon painel-admin oculto">
+				<h2>Painel do administrador</h2>
+				<p class="intro-admin">Cadastre novos Pokémon no catálogo. Para excluir, use o botão 🗑 em cada card.</p>
+				<form id="form-pokemon" class="form-grid">
+					<label>Nome
+						<input name="nome" required minlength="2" maxlength="60">
+					</label>
+					<label>Tipo(s)
+						<input name="tipo" required maxlength="30" placeholder="Ex.: Fogo ou Planta/Venenoso">
+					</label>
+					<label>Categoria
+						<select name="categoria" id="sel-categoria" required></select>
+					</label>
+					<label>Nº da Pokédex (opcional)
+						<input name="numero" type="number" min="1" max="2000">
+					</label>
+					<label class="largura-total">URL da imagem (opcional)
+						<input name="imagem_url" type="url" maxlength="255" placeholder="https://...">
+					</label>
+					<label class="largura-total">Descrição (opcional)
+						<textarea name="descricao" maxlength="500" rows="3"></textarea>
+					</label>
+					<button type="submit" class="btn-adicionar">Cadastrar Pokémon</button>
+					<p id="pokemon-erro" class="msg-erro" role="alert"></p>
+				</form>
+			</section>
+
+			<!-- SEÇÃO: MEU TIME -->
+			<section id="meu-time" class="secao-pokemon secao-time-builder">
+				<h2 id="titulo-time">Meu Time (0/6)</h2>
+				<div class="container-time">
+					<div id="grid-meu-time" class="grid-pokemon grid-time"></div>
+
+					<div id="analise-time" class="analise-time oculto">
+						<h3>Análise da Equipe</h3>
+						<div class="analise-grid">
+							<div class="analise-card vantagem">
+								<h4>Forte contra</h4>
+								<ul id="lista-vantagens"></ul>
+							</div>
+							<div class="analise-card fraqueza">
+								<h4>Fraco contra</h4>
+								<ul id="lista-fraquezas"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CATÁLOGO (gerado a partir da API) -->
+			<div id="catalogo"></div>
+		</main>
+	</div>
+
+	<!-- RODAPÉ -->
+	<footer id="rodape" class="rodape">
+		<p>Pokédex e Team Builder desenvolvidos para o Trabalho Individual II - SCOM (2026).</p>
+		<p><small>Os dados e imagens de Pokémon pertencem à Nintendo e The Pokémon Company.</small></p>
+
+		<nav aria-label="Navegação do rodapé">
+			<a href="#topo" class="link-topo">⬆ Voltar ao topo</a>
+		</nav>
+	</footer>
+
+	<!-- LOGIN / CADASTRO -->
+	<dialog id="dlg-auth" class="dialogo" aria-labelledby="auth-titulo">
+		<form id="form-auth">
+			<h2 id="auth-titulo">Entrar</h2>
+
+			<div id="campo-nome" class="oculto">
+				<label for="auth-nome">Nome</label>
+				<input id="auth-nome" name="nome" maxlength="80" autocomplete="name">
+			</div>
+
+			<label for="auth-email">E-mail</label>
+			<input id="auth-email" name="email" type="email" required maxlength="120" autocomplete="email">
+
+			<label for="auth-senha">Senha</label>
+			<input id="auth-senha" name="senha" type="password" required maxlength="72" autocomplete="current-password">
+			<small id="auth-dica" class="oculto">Mínimo de 8 caracteres, com letras e números.</small>
+
+			<p id="auth-erro" class="msg-erro" role="alert"></p>
+
+			<div class="dialogo-acoes">
+				<button type="submit" id="auth-enviar" class="btn-adicionar">Entrar</button>
+				<button type="button" id="auth-cancelar" class="btn-secundario">Cancelar</button>
+				<button type="button" id="auth-alternar" class="btn-link">Criar conta</button>
+			</div>
+		</form>
+	</dialog>
+
+	<!-- AVISOS -->
+	<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+	<script src="js/app.js"></script>
+</body>
+
+</html>
