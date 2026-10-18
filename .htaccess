@@ -1,5 +1,6 @@
 # Bloqueia download de arquivos sensiveis
-<FilesMatch "(^\.env|\.sql$|\.log$|\.md$)">
+<FilesMatch "(^\.env|\.sql$|\.log$|\.md$|^composer\.(json|lock)$|^phpunit\.xml$)">
     Require all denied
 </FilesMatch>
+RedirectMatch 403 /(vendor|\.phpunit\.cache)/
 Options -Indexes
