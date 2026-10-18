@@ -70,6 +70,7 @@ $router->add('POST', '/api/auth/register',  fn() => $auth->register());
 $router->add('POST', '/api/auth/login',     fn() => $auth->login());
 $router->add('POST', '/api/auth/logout',    fn() => $auth->logout());
 $router->add('GET',  '/api/auth/me',        fn() => $auth->me());
+$router->add('GET',  '/api/auth/session',   fn() => $auth->session());
 $router->add('GET',  '/api/admin/usuarios', fn() => $admin->listarUsuarios());
 
 // Pokemon (leitura publica; escrita so admin)
