@@ -87,6 +87,21 @@ final class Validator
         return $this;
     }
 
+    public function optionalInt(string $field, int $min, int $max, string $label): self
+    {
+        $v = $this->data[$field] ?? null;
+        if ($v === null || $v === '') {
+            return $this;
+        }
+        if (is_string($v) && ctype_digit($v)) {
+            $v = (int) $v;
+        }
+        if (!is_int($v) || $v < $min || $v > $max) {
+            $this->errors[$field] = "$label deve ser um número inteiro entre $min e $max";
+        }
+        return $this;
+    }
+
     public function email(string $field, int $max = 120): self
     {
         $v = $this->data[$field] ?? null;
