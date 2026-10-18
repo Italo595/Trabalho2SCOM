@@ -1,4 +1,5 @@
 .env
 logs/*.log
 vendor/
+.phpunit.cache/
 .DS_Store
