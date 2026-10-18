@@ -17,12 +17,13 @@ final class PokemonService
 
     public function list(array $query): array
     {
-        $page  = $this->intParam($query['page'] ?? 1, 1, 1000000, 'page');
-        $limit = $this->intParam($query['limit'] ?? 10, 1, 50, 'limit');
-        $tipo  = $this->textParam($query['tipo'] ?? null, 30, 'tipo');
-        $busca = $this->textParam($query['busca'] ?? null, 60, 'busca');
+        $page      = $this->intParam($query['page'] ?? 1, 1, 1000000, 'page');
+        $limit     = $this->intParam($query['limit'] ?? 10, 1, 50, 'limit');
+        $tipo      = $this->textParam($query['tipo'] ?? null, 30, 'tipo');
+        $busca     = $this->textParam($query['busca'] ?? null, 60, 'busca');
+        $categoria = $this->textParam($query['categoria'] ?? null, 30, 'categoria');
 
-        $r = $this->pokemons->paginate($page, $limit, $tipo, $busca);
+        $r = $this->pokemons->paginate($page, $limit, $tipo, $busca, $categoria);
 
         return [
             'items'       => $r['items'],
@@ -44,19 +45,21 @@ final class PokemonService
 
     public function create(array $input, int $userId): array
     {
-        $dados = $this->validar($input);
+        $d = $this->validar($input);
         $id = $this->pokemons->create(
-            $dados['nome'], $dados['tipo'], $dados['descricao'], $dados['imagem_url'], $userId
+            $d['nome'], $d['tipo'], $d['categoria'], $d['numero'], $d['descricao'], $d['imagem_url'], $userId
         );
-        Logger::info('Pokémon criado', ['id' => $id, 'nome' => $dados['nome'], 'por' => $userId]);
+        Logger::info('Pokémon criado', ['id' => $id, 'nome' => $d['nome'], 'por' => $userId]);
         return $this->get($id);
     }
 
     public function update(int $id, array $input, int $userId): array
     {
         $this->get($id); // 404 se nao existir
-        $dados = $this->validar($input);
-        $this->pokemons->update($id, $dados['nome'], $dados['tipo'], $dados['descricao'], $dados['imagem_url']);
+        $d = $this->validar($input);
+        $this->pokemons->update(
+            $id, $d['nome'], $d['tipo'], $d['categoria'], $d['numero'], $d['descricao'], $d['imagem_url']
+        );
         Logger::info('Pokémon atualizado', ['id' => $id, 'por' => $userId]);
         return $this->get($id);
     }
@@ -74,16 +77,21 @@ final class PokemonService
         (new Validator($input))
             ->text('nome', 2, 60, 'Nome')
             ->text('tipo', 2, 30, 'Tipo')
+            ->text('categoria', 2, 30, 'Categoria')
+            ->optionalInt('numero', 1, 2000, 'Número da Pokédex')
             ->optionalText('descricao', 500, 'Descrição')
             ->optionalUrl('imagem_url')
             ->validate();
 
         $descricao = Validator::cleanText($input['descricao'] ?? '');
         $imagem    = trim((string) ($input['imagem_url'] ?? ''));
+        $numero    = $input['numero'] ?? null;
 
         return [
             'nome'       => Validator::cleanText($input['nome']),
             'tipo'       => Validator::cleanText($input['tipo']),
+            'categoria'  => mb_strtolower(Validator::cleanText($input['categoria'])),
+            'numero'     => ($numero === null || $numero === '') ? null : (int) $numero,
             'descricao'  => $descricao === '' ? null : $descricao,
             'imagem_url' => $imagem === '' ? null : $imagem,
         ];
