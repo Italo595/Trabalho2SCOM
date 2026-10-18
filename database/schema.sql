@@ -37,6 +37,8 @@ CREATE TABLE pokemons (
     id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome        VARCHAR(60)  NOT NULL,
     tipo        VARCHAR(30)  NOT NULL,
+    categoria   VARCHAR(30)  NOT NULL DEFAULT 'outros',
+    numero      SMALLINT UNSIGNED NULL,
     descricao   TEXT         NULL,
     imagem_url  VARCHAR(255) NULL,
     criado_por  INT UNSIGNED NULL,
@@ -44,6 +46,7 @@ CREATE TABLE pokemons (
     PRIMARY KEY (id),
     UNIQUE KEY uq_pokemons_nome (nome),
     KEY idx_pokemons_tipo (tipo),
+    KEY idx_pokemons_categoria (categoria),
     CONSTRAINT fk_pokemons_usuario
         FOREIGN KEY (criado_por) REFERENCES usuarios (id)
         ON DELETE SET NULL
@@ -83,13 +86,4 @@ CREATE TABLE time_pokemon (
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- Dados iniciais de exemplo
--- ------------------------------------------------------------
-INSERT INTO pokemons (nome, tipo, descricao) VALUES
-    ('Pikachu',   'Elétrico', 'Armazena eletricidade nas bochechas.'),
-    ('Charizard', 'Fogo',     'Cospe fogo capaz de derreter rochas.'),
-    ('Blastoise', 'Água',     'Dispara jatos de água pelos canhões do casco.'),
-    ('Venusaur',  'Planta',   'A flor em suas costas absorve a luz do sol.'),
-    ('Gengar',    'Fantasma', 'Esconde-se nas sombras e imita pessoas.'),
-    ('Snorlax',   'Normal',   'Dorme quase o dia inteiro.');
+-- O catálogo é carregado depois, com: database/seed_pokemons.sql
