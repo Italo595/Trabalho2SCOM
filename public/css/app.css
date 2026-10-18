@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Complementos do Trabalho 2: usuário, login, painel admin e avisos
+   ========================================================================== */
+.area-usuario {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	color: var(--cor-texto-claro);
+	font-size: 0.9rem;
+}
+
+.btn-topo {
+	background: transparent;
+	color: var(--cor-texto-claro);
+	border: 2px solid var(--cor-texto-claro);
+	border-radius: 6px;
+	padding: 0.4rem 0.9rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-topo:hover {
+	background: var(--cor-destaque);
+	border-color: var(--cor-destaque);
+	color: var(--cor-texto);
+}
+
+.selo-perfil {
+	background: var(--cor-destaque);
+	color: var(--cor-texto);
+	border-radius: 999px;
+	padding: 0.1rem 0.7rem;
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.btn-excluir {
+	margin-top: 0.6rem;
+	width: 100%;
+	padding: 0.6rem;
+	background: #fee2e2;
+	color: #991b1b;
+	border: 1px solid #fca5a5;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-excluir:hover {
+	background: #fecaca;
+}
+
+/* ---- Diálogo de login/cadastro ---- */
+.dialogo {
+	border: none;
+	border-radius: 12px;
+	padding: 2rem;
+	width: min(92vw, 420px);
+	margin: auto;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dialogo::backdrop {
+	background: rgba(0, 0, 0, 0.55);
+}
+
+.dialogo h2 {
+	margin-bottom: 1rem;
+	color: var(--cor-primaria);
+}
+
+.dialogo label {
+	display: block;
+	margin-top: 0.8rem;
+	font-weight: bold;
+}
+
+.dialogo input {
+	width: 100%;
+	padding: 0.6rem;
+	margin-top: 0.3rem;
+	border: 1px solid var(--cor-borda);
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.dialogo small {
+	display: block;
+	margin-top: 0.4rem;
+	color: #6b7280;
+}
+
+.dialogo-acoes {
+	display: flex;
+	gap: 0.6rem;
+	margin-top: 1.5rem;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.dialogo-acoes .btn-adicionar {
+	margin-top: 0;
+	width: auto;
+	flex: 1;
+}
+
+.btn-secundario {
+	padding: 0.8rem 1rem;
+	background: #e5e7eb;
+	color: var(--cor-texto);
+	border: none;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-link {
+	background: none;
+	border: none;
+	color: var(--cor-secundaria);
+	text-decoration: underline;
+	cursor: pointer;
+	padding: 0.5rem 0;
+	font-size: 0.95rem;
+}
+
+.msg-erro {
+	margin-top: 0.8rem;
+	color: #b91c1c;
+	font-weight: bold;
+	min-height: 1.2em;
+}
+
+/* ---- Painel do administrador ---- */
+.intro-admin {
+	margin-bottom: 1.5rem;
+	color: #4b5563;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	max-width: 800px;
+}
+
+.form-grid label {
+	display: block;
+	font-weight: bold;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+	width: 100%;
+	padding: 0.6rem;
+	margin-top: 0.3rem;
+	border: 1px solid var(--cor-borda);
+	border-radius: 6px;
+	font-size: 1rem;
+	font-family: inherit;
+}
+
+.largura-total,
+.form-grid .btn-adicionar,
+.form-grid .msg-erro {
+	grid-column: 1 / -1;
+}
+
+.form-grid .btn-adicionar {
+	margin-top: 0;
+}
+
+/* ---- Avisos (toast) ---- */
+.toast {
+	position: fixed;
+	bottom: 1.5rem;
+	left: 50%;
+	transform: translateX(-50%) translateY(150%);
+	background: #111827;
+	color: #fff;
+	padding: 0.9rem 1.4rem;
+	border-radius: 8px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+	z-index: 2000;
+	opacity: 0;
+	max-width: 90vw;
+	text-align: center;
+	pointer-events: none;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.visivel {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+.toast-erro {
+	background: #991b1b;
+}
+
+@media (max-width: 768px) {
+	.area-usuario .saudacao {
+		display: none;
+	}
+
+	.btn-topo {
+		padding: 0.3rem 0.6rem;
+		font-size: 0.8rem;
+	}
+
+	.form-grid {
+		grid-template-columns: 1fr;
+	}
+}
