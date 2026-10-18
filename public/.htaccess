@@ -1,4 +1,5 @@
 Options -Indexes
+DirectoryIndex pokedex.html index.php
 RewriteEngine On
 # Se nao for arquivo/pasta real, manda para o front controller
 RewriteCond %{REQUEST_FILENAME} !-f
