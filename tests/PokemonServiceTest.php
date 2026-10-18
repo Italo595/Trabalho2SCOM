@@ -41,15 +41,18 @@ final class PokemonServiceTest extends TestCase
         }
     }
 
-    public function testCriarRemoveTagsDoNome(): void
+        public function testCriarRemoveTagsDoNome(): void
     {
         $repo = $this->createMock(PokemonRepository::class);
         $repo->expects($this->once())->method('create')
-            ->with('Mewtwo', 'Psíquico', null, null, 1)
+            ->with('Mewtwo', 'Psíquico', 'lendarios', null, null, null, 1)
             ->willReturn(7);
         $repo->method('findById')->willReturn(['id' => 7, 'nome' => 'Mewtwo']);
 
-        $r = (new PokemonService($repo))->create(['nome' => '<b>Mew</b>two', 'tipo' => 'Psíquico'], 1);
+        $r = (new PokemonService($repo))->create(
+            ['nome' => '<b>Mew</b>two', 'tipo' => 'Psíquico', 'categoria' => 'Lendarios'],
+            1
+        );
 
         $this->assertSame('Mewtwo', $r['nome']);
     }
@@ -61,10 +64,12 @@ final class PokemonServiceTest extends TestCase
         $service = new PokemonService($repo);
 
         $invalidos = [
-            ['nome' => 'X', 'tipo' => 'Fogo'],
-            ['nome' => 'Charmander'],
-            ['nome' => 'Ok', 'tipo' => 'Fogo', 'imagem_url' => 'javascript:alert(1)'],
-            ['nome' => str_repeat('a', 61), 'tipo' => 'Fogo'],
+            ['nome' => 'X', 'tipo' => 'Fogo', 'categoria' => 'aves'],
+            ['nome' => 'Charmander', 'categoria' => 'iniciais'],
+            ['nome' => 'Ok', 'tipo' => 'Fogo'],
+            ['nome' => 'Ok', 'tipo' => 'Fogo', 'categoria' => 'aves', 'numero' => 'abc'],
+            ['nome' => 'Ok', 'tipo' => 'Fogo', 'categoria' => 'aves', 'imagem_url' => 'javascript:alert(1)'],
+            ['nome' => str_repeat('a', 61), 'tipo' => 'Fogo', 'categoria' => 'aves'],
         ];
         foreach ($invalidos as $dados) {
             $this->assertAppError(422, fn() => $service->create($dados, 1));
