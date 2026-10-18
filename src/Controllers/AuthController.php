@@ -46,4 +46,15 @@ final class AuthController
         $sess = AuthMiddleware::require();
         Response::success($this->usuarios->findById($sess['id']));
     }
+
+    /** Informa se ha sessao ativa (sempre 200; usado pelo front-end ao abrir a pagina). */
+    public function session(): never
+    {
+        $sess    = Session::user();
+        $usuario = $sess !== null ? $this->usuarios->findById($sess['id']) : null;
+        if ($sess !== null && $usuario === null) { // usuario removido do banco
+            Session::destroy();
+        }
+        Response::success(['autenticado' => $usuario !== null, 'usuario' => $usuario]);
+    }
 }
