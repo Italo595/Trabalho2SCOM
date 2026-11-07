@@ -4,8 +4,8 @@ Evolução do Trabalho 1 (catálogo Pokémon e montador de times em HTML/CSS) co
 
 ## Requisitos
 
-- [XAMPP](https://www.apachefriends.org) com **PHP 8.1 ou superior**, Apache e MySQL/MariaDB.
-- Para os testes: [Composer](https://getcomposer.org) e a extensão `zip` ativada no `php.ini` do XAMPP.
+- [XAMPP](https://www.apachefriends.org) com **PHP 8.2 ou superior**, Apache e MySQL/MariaDB.
+- Para os testes: nada além do que já vem no projeto (a pasta `vendor/` está incluída). O [Composer](https://getcomposer.org) só é necessário se a pasta `vendor/` for removida.
 
 ## Como executar
 
@@ -14,26 +14,33 @@ Evolução do Trabalho 1 (catálogo Pokémon e montador de times em HTML/CSS) co
 3. **Crie o banco.** Em `http://localhost/phpmyadmin`, aba **Importar**, importe nesta ordem:
    1. `database/schema.sql`, que cria o banco `pokedex` e as tabelas (apaga tabelas existentes);
    2. `database/seed_pokemons.sql`, que carrega os 50 Pokémon do catálogo.
-4. **Crie o usuário do banco.** Na aba **SQL** (troque a senha):
-```sql
-   CREATE USER 'pokedex_user'@'localhost' IDENTIFIED BY 'SUA_SENHA';
+4. **Crie o usuário do banco.** No phpMyAdmin, aba **SQL**, execute:
+   ```sql
+   CREATE USER IF NOT EXISTS 'pokedex_user'@'localhost' IDENTIFIED BY 'troque_esta_senha';
    GRANT ALL ON pokedex.* TO 'pokedex_user'@'localhost';
    FLUSH PRIVILEGES;
-```
-5. **Configure o ambiente.** Copie `.env.example` para `.env` e preencha `DB_PASS` com a mesma senha:
-```
+   ```
+5. **Crie o arquivo de configuração.** O `.env` não acompanha o projeto (ele guarda a senha do banco e fica fora do Git). Copie o modelo `.env.example` para `.env`, na raiz do projeto:
+   ```
+   copy .env.example .env
+   ```
+   O modelo já usa a mesma senha do passo 4:
+   ```
    APP_ENV=development
    DB_HOST=localhost
    DB_PORT=3306
    DB_NAME=pokedex
    DB_USER=pokedex_user
-   DB_PASS=SUA_SENHA
-```
-6. **Abra o sistema** em `http://localhost/Trabalho2SCOM/public/`. Para conferir a API: `http://localhost/Trabalho2SCOM/public/api/health`.
+   DB_PASS=troque_esta_senha
+   ```
+   Se trocar a senha no passo 4, troque também em `DB_PASS`. Fora de um teste local, a senha de exemplo deve ser alterada.
+6. **Abra o sistema** em `http://localhost/Trabalho2SCOM/public/`. Para conferir a API: `http://localhost/Trabalho2SCOM/public/api/health` (deve responder com o banco "conectado").
+
+Se aparecer a mensagem "Arquivo .env nao encontrado", falta o passo 5. Se aparecer `Access denied`, o usuário do passo 4 não foi criado ou a senha do `.env` é diferente da usada nele.
 
 ### Criar um administrador
 
-O cadastro público sempre cria o perfil `usuario`. Para criar um admin, cadastre-se normalmente pela página e, no phpMyAdmin (aba **SQL**), rode:
+O cadastro público sempre cria o perfil `usuario`. Para criar um admin, cadastre-se normalmente pela página e, no phpMyAdmin (aba **SQL**), execute:
 
 ```sql
 UPDATE pokedex.usuarios SET perfil = 'admin' WHERE email = 'seu@email.com';
@@ -47,12 +54,25 @@ Quem já tem o banco sem as colunas `categoria` e `numero` deve importar `databa
 
 ## Testes automatizados
 
+Na raiz do projeto, no terminal (PowerShell ou Prompt de Comando):
+
 ```
-composer install
-composer exec phpunit -- --testdox
+php vendor/bin/phpunit --testdox
 ```
 
+Se o comando `php` não for reconhecido, use o PHP do XAMPP:
+
+```
+C:\xampp\php\php.exe vendor\bin\phpunit --testdox
+```
+
+Se a pasta `vendor/` não existir, rode antes `composer install` (exige a extensão `zip` ativada no `php.ini` do XAMPP).
+
 Os testes cobrem validação, autenticação, catálogo e regras dos times (casos válidos e inválidos). Eles usam repositórios simulados e **não precisam** de banco nem de Apache.
+
+## Testes de segurança manuais
+
+A página `http://localhost/Trabalho2SCOM/public/ferramenta-testes.html` permite cadastrar, entrar, sair e enviar requisições à API (inclusive sem token CSRF), usada nos testes descritos no relatório.
 
 ## Documentação
 
@@ -77,5 +97,6 @@ Prepared statements (SQL Injection), sanitização de entrada e escrita na tela 
 
 ## Observações
 
+- Com `APP_ENV=development`, erros internos (500) mostram detalhes técnicos na resposta. Em produção, use `APP_ENV=production`.
 - Dados e imagens de Pokémon pertencem à Nintendo e The Pokémon Company.
 - O uso de IA generativa no desenvolvimento está declarado no relatório técnico.
